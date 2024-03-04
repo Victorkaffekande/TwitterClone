@@ -6,16 +6,14 @@ services:
       dockerfile: AuthService/Dockerfile
     networks:
       - backend_net
-    ports:
-      - 5005:8080
     
   client-api:
     build:
       context: .
       dockerfile: ClientAPI/Dockerfile
     networks:
-      - backend_net
       - client_net
+      - backend_net
     ports:
       - 9411:80
 
