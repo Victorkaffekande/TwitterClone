@@ -6,6 +6,20 @@ services:
       dockerfile: AuthService/Dockerfile
     networks:
       - backend_net
+        
+  timeline-service:
+    build:
+      context: .
+      dockerfile: TimelineService/Dockerfile
+    networks:
+      - backend_net
+        
+  tweet-service:
+    build:
+      context: .
+      dockerfile: TweetService/Dockerfile
+    networks:
+      - backend_net
     
   client-api:
     build:

@@ -6,17 +6,17 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
-RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+COPY ["TimelineService/TimelineService.csproj", "TimelineService/"]
+RUN dotnet restore "TimelineService/TimelineService.csproj"
 COPY . .
-WORKDIR "/src/WebApplication1"
-RUN dotnet build "WebApplication1.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/TimelineService"
+RUN dotnet build "TimelineService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "WebApplication1.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "TimelineService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+ENTRYPOINT ["dotnet", "TimelineService.dll"]
