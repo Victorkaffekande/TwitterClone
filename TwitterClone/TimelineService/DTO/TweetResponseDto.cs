@@ -1,4 +1,6 @@
-﻿namespace TimelineService.DTO;
+﻿using System.Collections;
+
+namespace TimelineService.DTO;
 
 public class TweetResponseDto
 {
@@ -8,4 +10,5 @@ public class TweetResponseDto
     public string AuthorHandle { get; set; }
     public string Body { get; set; }
     public DateTime Timestamp { get; set; }
+    
 }

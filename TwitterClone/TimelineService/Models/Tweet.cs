@@ -1,4 +1,4 @@
-﻿namespace TweetService.Models;
+﻿namespace TimelineService.Models;
 
 public class Tweet
 {
