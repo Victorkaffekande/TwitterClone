@@ -58,8 +58,14 @@ public class TweetRepository : ITweetRepository
         }
     }
 
-    public Tweet SaveTweet()
+    public Tweet SaveTweet(Tweet tweet)
     {
-        throw new NotImplementedException();
+        using (var context = new TweetContext())
+        {
+            context.Tweets.Add(tweet);
+            context.SaveChanges();
+            return tweet;
+        }
+        
     }
 }

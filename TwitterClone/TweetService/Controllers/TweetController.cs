@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TweetService.Core.Services;
+using TweetService.Models;
 
 namespace TweetService.Controllers;
 
@@ -7,10 +9,12 @@ namespace TweetService.Controllers;
 public class TweetController : ControllerBase
 {
     private readonly ITweetRepository _tweetRepository;
-
-    public TweetController(ITweetRepository tweetRepository)
+    private readonly ITweetService _tweetService;
+    
+    public TweetController(ITweetRepository tweetRepository, ITweetService tweetService)
     {
         _tweetRepository = tweetRepository;
+        _tweetService = tweetService;
     }
     
     
@@ -25,6 +29,13 @@ public class TweetController : ControllerBase
     public ActionResult GetTweets()
     {
         return Ok(_tweetRepository.GetTweets());
+    }
+
+    [HttpPost]
+    [Route("PostTweet")]
+    public ActionResult PostTweet(Tweet tweet)
+    {
+        return Ok(_tweetService.HandleNewTweet(tweet));
     }
     
 }
