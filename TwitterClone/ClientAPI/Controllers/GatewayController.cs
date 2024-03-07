@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ClientAPI.Controllers;
 
+[ApiController]
+[Route("[controller]")]
 public class GatewayController : ControllerBase
 {
     private static string authService = "auth-service";
@@ -44,5 +47,22 @@ public class GatewayController : ControllerBase
         
         var result = res.Content.ReadAsStringAsync().Result;
         return Ok(result);
+    }
+
+    [HttpPost]
+    [Route("Validate")]
+    public async Task<ActionResult> ValidateToken(string jwt)
+    {
+        return Ok(jwt);
+        var msg = new HttpRequestMessage(HttpMethod.Post, new Uri($"http://{authService}/auth/validate"));
+        msg.Content = new StringContent(jwt, System.Text.Encoding.UTF8, "application/json");
+        var resultMessage = await _client.SendAsync(msg);
+        if (resultMessage.IsSuccessStatusCode)
+        {
+            string resultContent = await resultMessage.Content.ReadAsStringAsync();
+            return Ok(resultContent);
+        }
+
+        return BadRequest($"failed with status code of {resultMessage.StatusCode} message is: {resultMessage}");
     }
 }
