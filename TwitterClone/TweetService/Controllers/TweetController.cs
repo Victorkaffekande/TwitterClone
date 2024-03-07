@@ -6,6 +6,13 @@ namespace TweetService.Controllers;
 [Route("[controller]")]
 public class TweetController : ControllerBase
 {
+    private readonly ITweetRepository _tweetRepository;
+
+    public TweetController(ITweetRepository tweetRepository)
+    {
+        _tweetRepository = tweetRepository;
+    }
+    
     
     [HttpGet]
     [Route("test")]
@@ -13,4 +20,11 @@ public class TweetController : ControllerBase
     {
         return Ok("hello from tweet service");
     }
+    [HttpGet]
+    [Route("tweet")]
+    public ActionResult GetTweets()
+    {
+        return Ok(_tweetRepository.GetTweets());
+    }
+    
 }
