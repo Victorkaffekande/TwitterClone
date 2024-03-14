@@ -11,6 +11,7 @@ public class TweetRepository : ITweetRepository
     {
         using (var context = new TweetContext())
         {
+            
             var tweets = new List<Tweet>
             {
                 new Tweet
@@ -41,16 +42,22 @@ public class TweetRepository : ITweetRepository
                     UserId = 1,
                 }
             };
-            context.Tweets.AddRange(tweets);
-            context.SaveChanges();
+            //TODO Fake Data setup
+            //Kinda messy that this code is called everytime its initialised in the TweetService, alternative idea is to move code into method.
+            if (context.Tweets.ToList().Count == 0)
+            {
+                context.Tweets.AddRange(tweets);
+                context.SaveChanges();
+            }
         }
     }
     
+    
+    //Just for testing purpose 
     public List<Tweet> GetTweets()
     {
         using (var context = new TweetContext())
         {
-
             var list = context.Tweets
                 .ToList();
             return list;
@@ -58,6 +65,8 @@ public class TweetRepository : ITweetRepository
         }
     }
 
+    
+    
     public Tweet SaveTweet(Tweet tweet)
     {
         using (var context = new TweetContext())

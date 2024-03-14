@@ -10,4 +10,6 @@ public interface ITweetService
 
     public void TransferTweet(Tweet tweet);
 
+    public List<Tweet> GetTweets();
+    
 }

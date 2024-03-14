@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json;
+using ClientAPI.DTO;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ClientAPI.Controllers;
 
+[ApiController]
+[Route("[controller]")]
 public class GatewayController : ControllerBase
 {
     private static string authService = "auth-service";
@@ -44,5 +48,27 @@ public class GatewayController : ControllerBase
         
         var result = res.Content.ReadAsStringAsync().Result;
         return Ok(result);
+    }
+
+    
+    //TODO Follow Example of Like
+    // Basically setup factory for tweetservice and move the http send logic into the tweetservice for the gateway api
+    // to avoid logic of sending http request from inside the gateway api. 
+    [HttpPost]
+    [Route("PostTweet")]
+    public async Task<ActionResult> PostTweet(CreateTweetDto createTweetDto)
+    {
+        var res = new HttpRequestMessage(HttpMethod.Post, new Uri($"http://{tweetService}/tweet/PostTweet"));
+        res.Content = new StringContent(JsonSerializer.Serialize(createTweetDto), System.Text.Encoding.UTF8,
+            "application/json");
+        
+        var resultMessage = await _client.SendAsync(res);
+        if (resultMessage.IsSuccessStatusCode)
+        {
+            string resultContent = await resultMessage.Content.ReadAsStringAsync();
+            return Ok(resultContent);
+        }
+
+        return BadRequest($"failed with status code of {resultMessage.StatusCode} message is: {resultMessage}");
     }
 }
