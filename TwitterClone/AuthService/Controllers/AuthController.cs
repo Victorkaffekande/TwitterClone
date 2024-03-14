@@ -22,11 +22,11 @@ public class AuthController : ControllerBase
 
     [HttpPost]
     [Route("Validate")]
-    public ActionResult ValidateToken(string jwt)
+    public ActionResult ValidateToken(TokenDto tokenDto)
     {
         try
         {
-            return Ok(_tokenValidator.ValidateToken(jwt));
+            return Ok(_tokenValidator.ValidateToken(tokenDto.Jwt));
         }
         catch (Exception e)
         {
