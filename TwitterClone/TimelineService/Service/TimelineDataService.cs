@@ -26,6 +26,6 @@ public class TimelineDataService: ITimelineDataService
 
     public void AddTweetToTimelines(Tweet tweet, List<int> userIds)
     {
-        throw new NotImplementedException();
+        _repo.AddTweetToTimelines(tweet, userIds);
     }
 }
