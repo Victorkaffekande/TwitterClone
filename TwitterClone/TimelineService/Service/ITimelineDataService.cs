@@ -1,4 +1,5 @@
 ﻿using TimelineService.DTO;
+using TimelineService.Models;
 using TweetService.Models;
 
 namespace TimelineService.Service;
@@ -6,4 +7,5 @@ namespace TimelineService.Service;
 public interface ITimelineDataService
 {
     Task<TimelineResponseDto> GetTimelineByUserId(int id);
+    void AddTweetToTimelines(Tweet tweet, List<int> userIds);
 }

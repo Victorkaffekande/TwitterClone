@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using TimelineService.Models;
 using TimelineService.Repository.Models;
@@ -31,8 +30,14 @@ public class TimelineRepository: ITimelineRepository
         return result;
     }
 
-    public bool AddTweetToTimelines(Tweet tweet)
+    public void AddTweetToTimelines(Tweet tweet, List<int> userIds)
     {
-        throw new NotImplementedException();
+        var update = Builders<Timeline>.Update.Push(t => t.Tweets, tweet); 
+        
+        foreach (var id in userIds)  
+        {  
+            var filter = Builders<Timeline>.Filter.Eq(t => t.UserId, id);  
+            _timelineCollection.UpdateOneAsync(filter, update);  
+        }  
     }
 }

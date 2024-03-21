@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TimelineService.DTO;
+using TimelineService.Models;
 using TimelineService.Repository;
 using TweetService.Models;
 
@@ -21,5 +22,10 @@ public class TimelineDataService: ITimelineDataService
         var timeline = await _repo.GetTimelineByUserId(id);
         var mapped = _mapper.Map<TimelineResponseDto>(timeline);
         return mapped;
+    }
+
+    public void AddTweetToTimelines(Tweet tweet, List<int> userIds)
+    {
+        throw new NotImplementedException();
     }
 }
