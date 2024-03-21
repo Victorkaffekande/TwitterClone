@@ -30,14 +30,21 @@ public class TimelineRepository: ITimelineRepository
         return result;
     }
 
-    public void AddTweetToTimelines(Tweet tweet, List<int> userIds)
+    public void CreateTimeline(Timeline timeline)
+    {
+        _timelineCollection.InsertOneAsync(timeline);
+    }
+
+    public async void AddTweetToTimelines(Tweet tweet, List<int> userIds)
     {
         var update = Builders<Timeline>.Update.Push(t => t.Tweets, tweet); 
         
         foreach (var id in userIds)  
         {  
             var filter = Builders<Timeline>.Filter.Eq(t => t.UserId, id);  
-            _timelineCollection.UpdateOneAsync(filter, update);  
+            var res = await _timelineCollection.UpdateOneAsync(filter, update); 
+            Console.WriteLine(res);
+            
         }  
     }
 }

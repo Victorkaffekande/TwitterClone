@@ -8,4 +8,5 @@ public interface ITimelineDataService
 {
     Task<TimelineResponseDto> GetTimelineByUserId(int id);
     void AddTweetToTimelines(Tweet tweet, List<int> userIds);
+    void CreateTimeline(Timeline timeline);
 }

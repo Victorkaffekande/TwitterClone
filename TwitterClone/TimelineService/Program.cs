@@ -1,4 +1,6 @@
 using AutoMapper;
+using EasyNetQ;
+using TimelineService;
 using TimelineService.DTO;
 using TimelineService.Mappers;
 using TimelineService.Models;
@@ -19,6 +21,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<TimelineDatabaseSettings>(
     builder.Configuration.GetSection("TimelineDatabase"));
+
+builder.Services.AddSingleton(new MessageClient(RabbitHutch.CreateBus("host=rabbitmq;port=5672;virtualHost=/;username=guest;password=guest")));
+builder.Services.AddHostedService<MessageHandler>();
 
 builder.Services.AddSingleton<ITimelineRepository, TimelineRepository>();
 builder.Services.AddSingleton<ITimelineDataService, TimelineDataService>();

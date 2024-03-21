@@ -1,0 +1,60 @@
+﻿version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    user: rabbitmq
+    container_name: rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - backend_net
+      - client_net
+  
+  timeline-service:
+    build:
+      context: .
+      dockerfile: TimelineService/Dockerfile
+    ports:
+      - "5006:80"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      timeline-db:
+        condition: service_started
+    networks:
+      - backend_net
+      - client_net
+  
+  client-api:
+    build:
+      context: .
+      dockerfile: ClientApi/Dockerfile
+    ports:
+      - "5005:80"
+    networks:
+      - backend_net
+      - client_net
+  
+  timeline-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - timeline-history:/var/opt/mongo
+    networks:
+      - backend_net
+
+networks:
+  backend_net:
+    external: false
+    driver: bridge
+  client_net:
+    external: true
+volumes:
+  timeline-history:

@@ -28,4 +28,9 @@ public class TimelineDataService: ITimelineDataService
     {
         _repo.AddTweetToTimelines(tweet, userIds);
     }
+
+    public void CreateTimeline(Timeline timeline)
+    {
+        _repo.CreateTimeline(timeline);
+    }
 }
