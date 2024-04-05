@@ -1,6 +1,7 @@
 ﻿using AdditionService;
 using Microsoft.AspNetCore.Server.IIS.Core;
-using TweetService.Models;
+using SharedModels;
+
 
 namespace TweetService.Core.Services;
 

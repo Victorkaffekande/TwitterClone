@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelineService", "TimelineService\TimelineService.csproj", "{8ACF30F1-16D0-4826-944A-DE417FA20C6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{30AA648C-650A-4653-97CD-E367AD0344CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{8ACF30F1-16D0-4826-944A-DE417FA20C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ACF30F1-16D0-4826-944A-DE417FA20C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ACF30F1-16D0-4826-944A-DE417FA20C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30AA648C-650A-4653-97CD-E367AD0344CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30AA648C-650A-4653-97CD-E367AD0344CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30AA648C-650A-4653-97CD-E367AD0344CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30AA648C-650A-4653-97CD-E367AD0344CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

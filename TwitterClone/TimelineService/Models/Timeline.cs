@@ -1,4 +1,6 @@
-﻿namespace TimelineService.Models;
+﻿using SharedModels;
+
+namespace TimelineService.Models;
 
 public class Timeline
 {

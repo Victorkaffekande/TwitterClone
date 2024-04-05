@@ -1,4 +1,4 @@
-﻿using TweetService.Models;
+﻿using SharedModels;
 
 namespace TweetService.Core.Services;
 

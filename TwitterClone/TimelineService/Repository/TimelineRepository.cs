@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using SharedModels;
 using TimelineService.Models;
 using TimelineService.Repository.Models;
 

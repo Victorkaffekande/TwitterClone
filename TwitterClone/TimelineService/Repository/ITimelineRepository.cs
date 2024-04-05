@@ -1,4 +1,5 @@
-﻿using TimelineService.Models;
+﻿using SharedModels;
+using TimelineService.Models;
 
 namespace TimelineService.Repository;
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SharedModels;
 using TweetService.Core.Services;
-using TweetService.Models;
+
 
 namespace TweetService.Controllers;
 

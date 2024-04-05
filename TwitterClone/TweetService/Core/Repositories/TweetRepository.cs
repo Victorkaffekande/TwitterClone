@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices.JavaScript;
 using Microsoft.EntityFrameworkCore;
-using TweetService.Models;
+using SharedModels;
+
 
 namespace TweetService;
 

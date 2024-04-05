@@ -1,4 +1,4 @@
-﻿namespace TimelineService.Models;
+﻿namespace SharedModels;
 
 public class Tweet
 {

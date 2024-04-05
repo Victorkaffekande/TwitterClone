@@ -1,4 +1,5 @@
-﻿using TimelineService.DTO;
+﻿using SharedModels;
+using TimelineService.DTO;
 using TimelineService.Models;
 using TweetService.Models;
 

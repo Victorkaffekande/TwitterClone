@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TweetService.Models;
+using SharedModels;
+
 
 namespace TweetService;
 

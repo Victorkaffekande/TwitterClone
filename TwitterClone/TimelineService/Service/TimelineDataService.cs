@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SharedModels;
 using TimelineService.DTO;
 using TimelineService.Models;
 using TimelineService.Repository;

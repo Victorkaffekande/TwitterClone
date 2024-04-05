@@ -1,5 +1,6 @@
 using AutoMapper;
 using EasyNetQ;
+using SharedModels;
 using TimelineService;
 using TimelineService.DTO;
 using TimelineService.Mappers;
