@@ -12,14 +12,20 @@ public class MessageHandler : BackgroundService
     {
         _timelineDataService = timelineDataService;
     }
-    
+
+    private List<int> GetFollowers()
+    {
+        return new List<int>
+        {
+            1, 2, 3, 4
+        };
+    }
+
     private void HandleTweetMessage(Tweet tweet)
     {
         Console.WriteLine($"new tweet: {tweet}");
-        var userIds = new List<int>();
-        userIds.Add(1);
-        userIds.Add(2);
-        Console.WriteLine((tweet));
+        //For a real application, we would have a smarter way of getting the userIds of the users whose timeline we want to add the tweet to
+        var userIds = GetFollowers();
         _timelineDataService.AddTweetToTimelines(tweet, userIds);
     }
 
