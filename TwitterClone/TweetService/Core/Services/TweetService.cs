@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Server.IIS.Core;
+﻿using AdditionService;
+using Microsoft.AspNetCore.Server.IIS.Core;
 using TweetService.Models;
 
 namespace TweetService.Core.Services;
@@ -8,15 +9,18 @@ public class TweetService : ITweetService
 
     private readonly ITweetRepository _tweetRepository;
 
-    public TweetService(ITweetRepository tweetRepository)
+    private readonly MessageClient _messageClient;
+    
+    public TweetService(ITweetRepository tweetRepository, MessageClient messageClient)
     {
         _tweetRepository = tweetRepository;
+        _messageClient = messageClient;
     }
 
     public Tweet HandleNewTweet(Tweet tweet)
     {
-        
-        //TransferTweet(tweet);
+
+        TransferTweet(tweet);
         
         return SaveTweet(tweet);
     }
@@ -26,10 +30,9 @@ public class TweetService : ITweetService
         return _tweetRepository.SaveTweet(tweet);
     }
 
-    //TODO Implement messaging
     public void TransferTweet(Tweet tweet)
     {
-        throw new NotImplementedException();
+        _messageClient.send( tweet, "Tweet");
     }
 
     public List<Tweet> GetTweets()

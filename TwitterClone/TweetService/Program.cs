@@ -1,10 +1,14 @@
+using AdditionService;
+using EasyNetQ;
 using TweetService;
 using TweetService.Core.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
+builder.Services.AddSingleton(new MessageClient(RabbitHutch.CreateBus("host=rabbitmq;port=5672;virtualHost=/;username=guest;password=guest")));
 builder.Services.AddScoped<ITweetRepository, TweetRepository>();
 builder.Services.AddScoped<ITweetService, TweetService.Core.Services.TweetService>();
 builder.Services.AddDbContext<TweetContext>();
