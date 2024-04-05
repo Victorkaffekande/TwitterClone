@@ -1,4 +1,4 @@
-﻿version: "3"
+version: "3"
 services:
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -15,7 +15,14 @@ services:
     networks:
       - backend_net
       - client_net
-  
+        
+  auth-service:
+    build:
+      context: .
+      dockerfile: AuthService/Dockerfile
+    networks:
+      - backend_net
+        
   timeline-service:
     build:
       context: .
@@ -49,6 +56,14 @@ services:
       - timeline-history:/var/opt/mongo
     networks:
       - backend_net
+        
+  tweet-service:
+    build:
+      context: .
+      dockerfile: TweetService/Dockerfile
+    networks:
+      - backend_net
+    
 
 networks:
   backend_net:
@@ -58,3 +73,4 @@ networks:
     external: true
 volumes:
   timeline-history:
+  

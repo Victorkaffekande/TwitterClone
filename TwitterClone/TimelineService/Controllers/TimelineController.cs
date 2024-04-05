@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using TimelineService.DTO;
-using TimelineService.Models;
-using TimelineService.Service;
-
 namespace TimelineService.Controllers;
+
+using Microsoft.AspNetCore.Mvc;
+using DTO;
+using Models;
+using Service;
+
+
 
 [ApiController]
 [Route("[controller]")]
@@ -30,5 +32,5 @@ public class TimelineController : ControllerBase
         _timelineDataService.CreateTimeline(timeline);
         return Ok();
     }
-
+    
 }
