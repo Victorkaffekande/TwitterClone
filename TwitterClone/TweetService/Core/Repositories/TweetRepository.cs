@@ -61,18 +61,18 @@ public class TweetRepository : ITweetRepository
 
 
     //Just for testing purpose 
-    public List<Tweet> GetTweets()
+    public async Task<List<Tweet>> GetTweets()
     {
-        var list = _tweetContext.Tweets
-            .ToList();
+        var list = await _tweetContext.Tweets
+            .ToListAsync();
         return list;
     }
 
 
-    public Tweet SaveTweet(Tweet tweet)
+    public async Task<Tweet> SaveTweet(Tweet tweet)
     {
-        _tweetContext.Tweets.Add(tweet);
-        _tweetContext.SaveChanges();
+        await _tweetContext.Tweets.AddAsync(tweet);
+        await _tweetContext.SaveChangesAsync();
         return tweet;
     }
 }

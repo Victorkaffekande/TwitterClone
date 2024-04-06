@@ -18,17 +18,17 @@ public class TweetService : ITweetService
         _messageClient = messageClient;
     }
 
-    public Tweet HandleNewTweet(Tweet tweet)
+    public async Task<Tweet> HandleNewTweet(Tweet tweet)
     {
+        var savedTweet = await SaveTweet(tweet);
+        TransferTweet(savedTweet);
 
-        TransferTweet(tweet);
-        
-        return SaveTweet(tweet);
+        return savedTweet;
     }
     
-    public Tweet SaveTweet(Tweet tweet)
+    public async Task<Tweet> SaveTweet(Tweet tweet)
     {
-        return _tweetRepository.SaveTweet(tweet);
+        return await _tweetRepository.SaveTweet(tweet);
     }
 
     public void TransferTweet(Tweet tweet)
@@ -36,8 +36,8 @@ public class TweetService : ITweetService
         _messageClient.send( tweet, "Tweet");
     }
 
-    public List<Tweet> GetTweets()
+    public async Task<List<Tweet>> GetTweets()
     {
-        return _tweetRepository.GetTweets();
+        return await _tweetRepository.GetTweets();
     }
 }

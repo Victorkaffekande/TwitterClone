@@ -24,16 +24,16 @@ public class TweetController : ControllerBase
     }
     [HttpGet]
     [Route("tweet")]
-    public ActionResult GetTweets()
+    public async Task<ActionResult<List<Tweet>>> GetTweets()
     {
-        return Ok(_tweetService.GetTweets());
+        return Ok(await _tweetService.GetTweets());
     }
 
     [HttpPost]
     [Route("PostTweet")]
-    public ActionResult PostTweet(Tweet tweet)
+    public async Task<ActionResult<Tweet>> PostTweet(Tweet tweet)
     {
-        return Ok(_tweetService.HandleNewTweet(tweet));
+        return Ok(await _tweetService.HandleNewTweet(tweet));
     }
     
 }

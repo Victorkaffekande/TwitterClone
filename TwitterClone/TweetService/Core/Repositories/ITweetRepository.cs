@@ -5,7 +5,7 @@ namespace TweetService;
 
 public interface ITweetRepository
 {
- public List<Tweet> GetTweets();
+ public Task<List<Tweet>> GetTweets();
 
- public Tweet SaveTweet(Tweet tweet);
+ public Task<Tweet> SaveTweet(Tweet tweet);
 }

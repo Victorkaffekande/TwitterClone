@@ -1,6 +1,5 @@
 ﻿using EasyNetQ;
 using SharedModels;
-using TimelineService.Models;
 using TimelineService.Service;
 
 namespace TimelineService;
