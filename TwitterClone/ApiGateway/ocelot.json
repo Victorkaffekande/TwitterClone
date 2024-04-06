@@ -67,11 +67,11 @@
     {
       "UpstreamPathTemplate": "/auth",
       "UpstreamHttpMethod": ["Post"],
-      "DownstreamPathTemplate": "/authservice",
+      "DownstreamPathTemplate": "/authentication",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "auth-service",
+          "Host": "authentication-service",
           "Port": 80
         }
       ]
