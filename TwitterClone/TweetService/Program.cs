@@ -1,6 +1,5 @@
-using AdditionService;
-using EasyNetQ;
 using TweetService;
+using EasyNetQ;
 using TweetService.Core.Services;
 
 

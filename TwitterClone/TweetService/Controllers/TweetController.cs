@@ -2,7 +2,6 @@
 using SharedModels;
 using TweetService.Core.Services;
 
-
 namespace TweetService.Controllers;
 
 [ApiController]

@@ -1,6 +1,6 @@
 ﻿using EasyNetQ;
 
-namespace AdditionService;
+namespace TweetService;
 
 public class MessageClient
 {
@@ -11,8 +11,8 @@ public class MessageClient
         _bus = bus;
     }
 
-    public void send<T>(T message, string topic)
+    public void Send<T>(T message, string topic)
     {
-        _bus.PubSub.Publish(message, topic);
+        _bus.PubSub.PublishAsync(message, topic);
     }
 }

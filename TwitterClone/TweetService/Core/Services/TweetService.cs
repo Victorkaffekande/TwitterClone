@@ -1,6 +1,4 @@
-﻿using AdditionService;
-using Microsoft.AspNetCore.Server.IIS.Core;
-using SharedModels;
+﻿using SharedModels;
 
 
 namespace TweetService.Core.Services;
@@ -33,7 +31,7 @@ public class TweetService : ITweetService
 
     public void TransferTweet(Tweet tweet)
     {
-        _messageClient.send( tweet, "Tweet");
+         _messageClient.Send( tweet, "Tweet");
     }
 
     public async Task<List<Tweet>> GetTweets()

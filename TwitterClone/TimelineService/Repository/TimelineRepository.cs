@@ -31,12 +31,12 @@ public class TimelineRepository: ITimelineRepository
         return result;
     }
 
-    public void CreateTimeline(Timeline timeline)
+    public async Task CreateTimeline(Timeline timeline)
     {
-        _timelineCollection.InsertOneAsync(timeline);
+        await _timelineCollection.InsertOneAsync(timeline);
     }
 
-    public async void AddTweetToTimelines(Tweet tweet, List<int> userIds)
+    public async Task AddTweetToTimelines(Tweet tweet, List<int> userIds)
     {
         var update = Builders<Timeline>.Update.Push(t => t.Tweets, tweet); 
         

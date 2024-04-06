@@ -27,9 +27,9 @@ public class TimelineController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult PostUserTimeline(Timeline timeline)
+    public async Task<ActionResult> PostUserTimeline(Timeline timeline)
     {
-        _timelineDataService.CreateTimeline(timeline);
+        await _timelineDataService.CreateTimeline(timeline);
         return Ok();
     }
     

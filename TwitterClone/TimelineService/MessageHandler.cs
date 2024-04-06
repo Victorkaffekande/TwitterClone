@@ -21,12 +21,12 @@ public class MessageHandler : BackgroundService
         };
     }
 
-    private void HandleTweetMessage(Tweet tweet)
+    private async void HandleTweetMessage(Tweet tweet)
     {
         Console.WriteLine($"new tweet: {tweet}");
         //For a real application, we would have a smarter way of getting the userIds of the users whose timeline we want to add the tweet to
         var userIds = GetFollowers();
-        _timelineDataService.AddTweetToTimelines(tweet, userIds);
+        await _timelineDataService.AddTweetToTimelines(tweet, userIds);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)

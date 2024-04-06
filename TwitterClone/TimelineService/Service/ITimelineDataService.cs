@@ -8,6 +8,6 @@ namespace TimelineService.Service;
 public interface ITimelineDataService
 {
     Task<TimelineResponseDto> GetTimelineByUserId(int id);
-    void AddTweetToTimelines(Tweet tweet, List<int> userIds);
-    void CreateTimeline(Timeline timeline);
+    Task AddTweetToTimelines(Tweet tweet, List<int> userIds);
+    Task CreateTimeline(Timeline timeline);
 }

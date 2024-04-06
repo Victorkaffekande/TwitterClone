@@ -25,13 +25,13 @@ public class TimelineDataService: ITimelineDataService
         return mapped;
     }
 
-    public void AddTweetToTimelines(Tweet tweet, List<int> userIds)
+    public async Task AddTweetToTimelines(Tweet tweet, List<int> userIds)
     {
-        _repo.AddTweetToTimelines(tweet, userIds);
+        await _repo.AddTweetToTimelines(tweet, userIds);
     }
 
-    public void CreateTimeline(Timeline timeline)
+    public async Task CreateTimeline(Timeline timeline)
     {
-        _repo.CreateTimeline(timeline);
+        await _repo.CreateTimeline(timeline);
     }
 }

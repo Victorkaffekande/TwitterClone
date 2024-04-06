@@ -26,6 +26,7 @@ public class JwtTokenService
             new Claim("scope", "timeline.write"),
             new Claim("scope", "tweet.read"),
             new Claim("scope", "tweet.write")
+            //could add claims for user information if we had users (for example id)
         };
         var tokenOptions = new JwtSecurityToken(signingCredentials: signingCredentials, claims: claims);
 
