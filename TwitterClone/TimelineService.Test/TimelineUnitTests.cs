@@ -15,16 +15,21 @@ public class TimelineControllerTest
     [Fact]
     public async void GetUserTimelineTest()
     {
+        //arrange
         var serviceMock = new Mock<ITimelineDataService>();
         var mockResult = new TimelineResponseDto();
         var userId = 1;
+        
         serviceMock.Setup(service => service.GetTimelineByUserId(It.Is<int>(id => id == userId)))
             .ReturnsAsync(mockResult)
             .Verifiable();
+        
         var controller = new TimelineController(serviceMock.Object);
 
+        //act
         var res = await controller.GetUserTimeline(userId);
         
+        //assert
         //returns Ok result
         var okResult = Assert.IsType<OkObjectResult>(res.Result);
         //result value is TimelineResponseDto
@@ -127,4 +132,9 @@ public class TimelineDataServiceTest
         // Assert  
         repoMock.Verify(repo => repo.CreateTimeline(It.Is<Timeline>(t => t == timeline)), Times.Once);    
     }
+}
+
+public class MessageHandlerTest
+{
+    
 }
