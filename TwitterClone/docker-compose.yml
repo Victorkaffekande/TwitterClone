@@ -16,13 +16,6 @@ services:
       - backend_net
       - client_net
         
-  auth-service:
-    build:
-      context: .
-      dockerfile: AuthService/Dockerfile
-    networks:
-      - backend_net
-        
   timeline-service:
     build:
       context: .
@@ -37,16 +30,25 @@ services:
     networks:
       - backend_net
       - client_net
-  
-  client-api:
+    
+  api-gateway:
     build:
       context: .
-      dockerfile: ClientApi/Dockerfile
+      dockerfile: ApiGateway/Dockerfile
     ports:
       - "5005:80"
     networks:
       - backend_net
       - client_net
+    
+  authentication-service:
+    build:
+      context: .
+      dockerfile: AuthenticationService/Dockerfile
+    ports:
+      - "5007:80"
+    networks:
+      - backend_net
   
   timeline-db:
     image: mongo

@@ -1,0 +1,80 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/timeline/{id}",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamPathTemplate": "/timeline/user/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timeline-service",
+          "Port": 80
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["timeline.read"]
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/timeline",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamPathTemplate": "/timeline",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timeline-service",
+          "Port": 80
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["timeline.write"]
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/tweet",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamPathTemplate": "/tweet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tweet-service",
+          "Port": 80
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["tweet.read"]
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/tweet",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamPathTemplate": "/tweet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tweet-service",
+          "Port": 80
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["tweet.write"]
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/auth",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamPathTemplate": "/authservice",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-service",
+          "Port": 80
+        }
+      ]
+    }
+  ]
+}

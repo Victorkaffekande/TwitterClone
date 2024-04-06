@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelineService", "Timeline
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{30AA648C-650A-4653-97CD-E367AD0344CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{2329F768-25C4-4A9E-8C74-18AD5F9852E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{30AA648C-650A-4653-97CD-E367AD0344CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30AA648C-650A-4653-97CD-E367AD0344CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30AA648C-650A-4653-97CD-E367AD0344CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2329F768-25C4-4A9E-8C74-18AD5F9852E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2329F768-25C4-4A9E-8C74-18AD5F9852E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2329F768-25C4-4A9E-8C74-18AD5F9852E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2329F768-25C4-4A9E-8C74-18AD5F9852E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

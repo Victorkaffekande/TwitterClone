@@ -15,22 +15,13 @@ public class TweetController : ControllerBase
         _tweetService = tweetService;
     }
     
-    
     [HttpGet]
-    [Route("test")]
-    public ActionResult test()
-    {
-        return Ok("hello from tweet service");
-    }
-    [HttpGet]
-    [Route("tweet")]
     public async Task<ActionResult<List<Tweet>>> GetTweets()
     {
         return Ok(await _tweetService.GetTweets());
     }
 
     [HttpPost]
-    [Route("PostTweet")]
     public async Task<ActionResult<Tweet>> PostTweet(Tweet tweet)
     {
         return Ok(await _tweetService.HandleNewTweet(tweet));
