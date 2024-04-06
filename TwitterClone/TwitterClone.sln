@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetService.Service.Tests", "TweetService.Service.Tests\TweetService.Service.Tests.csproj", "{20AB6B6F-00B3-4715-8ADB-60023274C3BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AB6B6F-00B3-4715-8ADB-60023274C3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AB6B6F-00B3-4715-8ADB-60023274C3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AB6B6F-00B3-4715-8ADB-60023274C3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AB6B6F-00B3-4715-8ADB-60023274C3BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

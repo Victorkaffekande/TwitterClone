@@ -8,9 +8,9 @@ public class TweetService : ITweetService
 
     private readonly ITweetRepository _tweetRepository;
 
-    private readonly MessageClient _messageClient;
+    private readonly IMessageClient _messageClient;
     
-    public TweetService(ITweetRepository tweetRepository, MessageClient messageClient)
+    public TweetService(ITweetRepository tweetRepository, IMessageClient messageClient)
     {
         _tweetRepository = tweetRepository;
         _messageClient = messageClient;

@@ -2,7 +2,7 @@
 
 namespace TweetService;
 
-public class MessageClient
+public class MessageClient : IMessageClient
 {
     private readonly IBus _bus;
 
@@ -11,6 +11,7 @@ public class MessageClient
         _bus = bus;
     }
 
+    
     public void Send<T>(T message, string topic)
     {
         _bus.PubSub.PublishAsync(message, topic);

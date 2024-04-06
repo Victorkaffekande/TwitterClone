@@ -4,7 +4,8 @@ using SharedModels;
 
 namespace TweetService;
 
-public class TweetContext : DbContext
+
+public class TweetContext : DbContext, ITweetContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
