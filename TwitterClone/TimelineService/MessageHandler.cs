@@ -7,10 +7,12 @@ namespace TimelineService;
 public class MessageHandler : BackgroundService
 {
     private readonly ITimelineDataService _timelineDataService;
+    private MessageClient _messageClient;
     
-    public MessageHandler(ITimelineDataService timelineDataService)
+    public MessageHandler(ITimelineDataService timelineDataService, MessageClient messageClient)
     {
         _timelineDataService = timelineDataService;
+        _messageClient = messageClient;
     }
 
     private List<int> GetFollowers()
@@ -32,12 +34,8 @@ public class MessageHandler : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         Console.WriteLine("Message handler is running...");
-
-        var messageClient = new MessageClient(
-            RabbitHutch.CreateBus("host=rabbitmq;port=5672;virtualHost=/;username=guest;password=guest")
-        );
         
-        messageClient.Listen<Tweet>(HandleTweetMessage, "Tweet");
+        _messageClient.Listen<Tweet>(HandleTweetMessage, "Tweet");
         
         while (!stoppingToken.IsCancellationRequested)
         {
