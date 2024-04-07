@@ -10,7 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimelineService.Test", "TimelineService.Test\TimelineService.Test.csproj", "{3F4E936E-47DE-4C73-8BCF-B812C0E36460}"
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{2B36DD1F-9EE4-465D-ACDE-C3FA3DA0CD72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetService.Tests", "TweetService.Tests\TweetService.Tests.csproj", "{EAFB752C-C4A2-4BE9-BB8F-4B1B8F0ACDBE}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +42,6 @@ Global
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ABE74A6-0B1A-4FBC-BCF4-5B45FB4FCB20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F4E936E-47DE-4C73-8BCF-B812C0E36460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F4E936E-47DE-4C73-8BCF-B812C0E36460}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F4E936E-47DE-4C73-8BCF-B812C0E36460}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F4E936E-47DE-4C73-8BCF-B812C0E36460}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 EndGlobal

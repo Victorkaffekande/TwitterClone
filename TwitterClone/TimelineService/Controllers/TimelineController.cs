@@ -1,11 +1,9 @@
-namespace TimelineService.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
-using DTO;
-using Models;
-using Service;
+using TimelineService.DTO;
+using TimelineService.Models;
+using TimelineService.Service;
 
-
+namespace TimelineService.Controllers;
 
 [ApiController]
 [Route("[controller]")]

@@ -11,7 +11,11 @@ public class MessageClient
         _bus = bus;
     }
 
-    public void Send<T>(T message, string topic)
+    public MessageClient()
+    {
+    }
+
+    public virtual void Send<T>(T message, string topic)
     {
         _bus.PubSub.PublishAsync(message, topic);
     }
